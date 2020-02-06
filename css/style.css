@@ -1,0 +1,240 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --navBarBack: lightblue; 
+    --navLinksBack: rgb(189, 230, 173); 
+    --cartBack: rgb(156, 37 , 21);
+    --introPText: #585772; 
+    --btnColor: #c36cbb; 
+    --btnHoverColor: #5a1c54; 
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+button{
+    font-family: 'Poppins', sans-serif;
+}
+
+button:hover{
+    background-color: var(--btnHoverColor);
+    color: white;
+}
+
+header{
+    display: flex; /*line up everything side by side */
+    /* background-color: var(--navBarBack);  */
+    width: 90%; /* make the nav bar only 90% wide */
+    height: 10vh; 
+    margin: auto;   /* center the entire nav bar */ 
+    align-items: center; 
+}
+
+.logo-container, .nav-links, .cart{
+    display: flex; /*line up everything side by side */
+}
+
+
+.logo-container{
+    /* background: var(--navBarBack); */
+    flex: 1 /* takes up all the space in the width */ 
+}
+
+.logo{
+    font-weight: 400; 
+    margin: 5px;
+}
+
+nav{
+    /* background: var(--navLinksBack);  */
+    flex: 2;
+}
+
+.nav-links{
+    justify-content: space-around; /* create even space around each li */
+    list-style: none; /* remove bullet */ 
+}
+
+.nav-link{
+    color: #5f5f79;
+    font-size: 18px; 
+    text-decoration: none;
+}
+
+.nav-link:hover{
+    color: var(--btnColor);
+}
+
+.cart{
+    /* background: var(--cartBack); */
+    flex: 1;
+    justify-content: flex-end; /* move item to end right side */ 
+}
+
+
+.presentation{
+    display: flex; 
+    width: 90%; 
+    margin: auto; 
+    min-height: 80vh; 
+    align-items: center; 
+}
+
+.introduction{
+    /* background: var(--navBarBack); */
+    flex: 1; 
+}
+
+.intro-text h1{
+    font-size: 44px; 
+    font-weight: 500; 
+    /* Use linear gradient below but ONLY ON THE TEXT */
+    background: linear-gradient(to right, #494964, #6f6f89); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /*  END of linear text gradient */
+}
+
+.intro-text p{
+    margin-top: 5px;
+    font-size: 22px;
+    color: var(--introPText); 
+}
+
+.cta{
+    padding: 50px 0px 0px 0px; 
+}
+
+.cta-select{
+    border: 2px solid var(--btnColor);
+    background: transparent; 
+    color: var(--btnColor);
+    width: 150px; 
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px; 
+}
+
+.cta-add{
+    background: var(--btnColor); 
+    width: 150px; 
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px; 
+    border: none;
+    color: white;
+    margin: 30px 0px 0px 30px;
+}
+
+.cover{
+    flex: 1; 
+    display: flex; 
+    justify-content: center;
+    height: 60vh;
+}
+
+.cover img{
+     height: 100%; 
+    filter: drop-shadow(0px 5px 3px black); /* use this to add a shadow directly to you image */ 
+    animation: drop 1.5s ease; /* the 'drop' name comes from the animation name WE created on the keyframe at the bottom */ 
+}
+
+.big-circle{
+    position: absolute; 
+    top: 0px;
+    right: 0px; 
+    z-index: -1; /* move circle img BEHIND laptop image */ 
+    opacity: 0.7;
+    height: 80%; 
+    opacity: 0.5;
+}
+
+.medium-circle{
+    position: absolute; 
+    top: 30%; 
+    right: 30%; 
+    z-index: -1; 
+    height: 60%; 
+    opacity: 0.4;
+}
+
+.small-circle{
+    position: absolute; 
+    bottom: 0%;
+    left: 20%;  
+    z-index: -1; 
+}
+
+.laptop-select{
+    width: 15%; 
+    display: flex;
+    justify-content: space-around; 
+    position: absolute;
+    right: 20%;
+}
+
+/* drop down animation */
+@keyframes drop{
+    0%{ /* this is the starting position */ 
+        opacity: 0; /* not visible to start */ 
+        transform: translateY(-80px); /* start from 80px above its normal spot */
+    }
+
+    100%{ /* this is the ending position */ 
+        opacity: 1; 
+        transform: translateY(0px);
+    }
+}
+
+
+/* ********** MEDIA QUERIES ********** */
+
+@media screen and (max-width: 1024px){
+    /* body{
+        display: none; 
+    } */
+
+    .presentation{
+        flex-direction: column; /* stacks divs one above the other (column) */
+    }
+
+    .introduction{
+        margin-top: 5vh;
+        text-align: center;
+    }
+
+    .intro-text h1{
+        font-size: 30px;
+    }
+
+    .intro-text p{
+        font-size: 18px;
+    }
+
+    .cta{
+        padding: 10px 0px 0px 0px;
+    }
+
+    .laptop-select{
+        bottom: 5%;
+        right: 50%; 
+        width: 50%; 
+        transform: translate(50%, 5%);
+    }
+
+    .cover img{
+        height: 80%;
+    }
+
+    .small-circle, .medium-circle, .big-circle{
+        opacity: 0.2;
+    }
+}
+
+
+
+
